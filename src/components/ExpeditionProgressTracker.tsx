@@ -1,0 +1,2 @@
+import React,{useEffect,useState} from 'react';
+export const ExpeditionProgressTracker:React.FC=()=>{const [p,setP]=useState(0);useEffect(()=>{const f=()=>{const h=document.documentElement.scrollHeight-innerHeight;setP(h>0?(scrollY/h)*100:0)};addEventListener('scroll',f,{passive:true});f();return()=>removeEventListener('scroll',f)},[]);return <div className="fixed left-0 top-0 z-[70] h-0.5 bg-sky-400 transition-all" style={{width:`${p}%`}}/>};
